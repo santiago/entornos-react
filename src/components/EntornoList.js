@@ -45,7 +45,6 @@ const ModalContent = props => {
 };
 const WrappedApp = Form.create({ name: "modal_content" })(ModalContent);
 
-
 function EntornoList(props) {
   const { dispatch, entornos } = props
   const columns = [
@@ -57,8 +56,7 @@ function EntornoList(props) {
       key: "x",
       render: () => <div>Delete</div>
     }
-  ];
-  console.log('props: ', props);
+  ]
   const [ showModal, setShowModal ] = useState(false)
   const [ loading, setLoading ] = useState(false)
   useEffect(() => {
@@ -89,17 +87,14 @@ function EntornoList(props) {
           handleLoading={handleLoading}
         />
       </Modal>
-      { 
-        entornos.length !== 0 ? 
-          <Table
-            rowKey="_id"
-            columns={columns}
-            expandedRowRender={record => (
-              <p style={{ margin: 0 }}>{record.descripcion}</p>
-            )}
-            dataSource={entornos}
-          /> : <div style={{ textAlign: "center" }}><p style={{ fontSize: "3rem", color: "#255d94" }}>Loading...</p></div>
-      }
+      <Table
+        rowKey="_id"
+        columns={columns}
+        expandedRowRender={record => (
+          <p style={{ margin: 0 }}>{record.descripcion}</p>
+        )}
+        dataSource={entornos}
+      />
     </Fragment>
   )
 }

@@ -44,9 +44,9 @@ const ModalContent = props => {
   );
 };
 
-const WrappedApp = Form.create({ name: "modal_content" })(ModalContent);
+const WrappedApp = Form.create({ name: "modal_content" })(ModalContent)
+
 function DeviceList(props) {
-  console.log('props: ', props);
   const [showModal, setShowModal] = useState(false)
   const [loading, setLoading] = useState(false)
 
